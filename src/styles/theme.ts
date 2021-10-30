@@ -7,7 +7,8 @@ export const theme: DefaultTheme = {
     },
     background: {
       primary: '#121214',
-      secondary: '#17171A'
+      secondary: '#17171A',
+      tertiary: '#ffcd1e'
     }
   },
   font: {
