@@ -2,10 +2,11 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       text: {
-          primary: string
+        primary: string
       }
       background: {
-          primary: string
+        primary: string
+        secondary: string
       }
     },
     font: {
