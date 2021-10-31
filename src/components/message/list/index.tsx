@@ -1,5 +1,8 @@
 import React from 'react'
 
+/* ------| Services |------ */
+import { api } from '@services/api'
+
 /* ------| Media |------ */
 import LogoImage from '@media/logo.svg'
 
@@ -16,46 +19,45 @@ import {
   Text
 } from './styles'
 
+/* ------| Types |------ */
+type MessageStateType = {
+  id: string
+  message: string,
+  user: {
+    name: string,
+    avatar_url: string
+  },
+  created_at: string
+}
+
 export const MessageList = () => {
+  const [ messages, setMessage ] = React.useState<MessageStateType[]>([])
+
+  React.useEffect(() => {
+    api.get<MessageStateType[]>('http://localhost:4000/messages/last/3').then(({ data }) => {
+      setMessage(data)
+    })
+  }, [])
+
   return (
     <Root>
       <LogoFigure>
         <img src={LogoImage} alt="DoWhile 2021" />
       </LogoFigure>
       <Unordered>
-        <ListItem>
-          <Text>Não vejo a hora de começar esse evento, com certeza vai ser o melhor de todos os tempos, vamooo pra cima! 🔥🔥</Text>
-          <User>
-            <UserAvatar>
-              <UserFigure>
-                <img src="https://github.com/meluiz.png" alt="Luiz Felipe" />
-              </UserFigure>
-            </UserAvatar>
-            <UserName>Luiz Felipe</UserName>
-          </User>
-        </ListItem>
-        <ListItem>
-          <Text>Não vejo a hora de começar esse evento, com certeza vai ser o melhor de todos os tempos, vamooo pra cima! 🔥🔥</Text>
-          <User>
-            <UserAvatar>
-              <UserFigure>
-                <img src="https://github.com/meluiz.png" alt="Luiz Felipe" />
-              </UserFigure>
-            </UserAvatar>
-            <UserName>Luiz Felipe</UserName>
-          </User>
-        </ListItem>
-        <ListItem>
-          <Text>Não vejo a hora de começar esse evento, com certeza vai ser o melhor de todos os tempos, vamooo pra cima! 🔥🔥</Text>
-          <User>
-            <UserAvatar>
-              <UserFigure>
-                <img src="https://github.com/meluiz.png" alt="Luiz Felipe" />
-              </UserFigure>
-            </UserAvatar>
-            <UserName>Luiz Felipe</UserName>
-          </User>
-        </ListItem>
+        {messages && messages.map((message) => (
+          <ListItem key={message.id}>
+            <Text>{message.message}</Text>
+            <User>
+              <UserAvatar>
+                <UserFigure>
+                  <img src={message.user.avatar_url} alt={message.user.name} />
+                </UserFigure>
+              </UserAvatar>
+              <UserName>{message.user.name}</UserName>
+            </User>
+          </ListItem>
+        ))}
       </Unordered>
     </Root>
   )
