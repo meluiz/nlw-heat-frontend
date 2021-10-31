@@ -22,7 +22,8 @@
       "@components/*": [ "src/components/*" ],
       "@pages/*": [ "src/pages/*" ],
       "@media/*": [ "src/media/*" ],
-      "@services/*": [ "src/services/*" ]
+      "@services/*": [ "src/services/*" ],
+      "@contexts/*": [ "src/contexts/*" ]
     }
   },
   "include": ["./src"]
