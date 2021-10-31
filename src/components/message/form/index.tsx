@@ -21,7 +21,6 @@ import {
   UserName
 } from './styles'
 
-
 export const MessageForm = () => {
   const { user, signout } = React.useContext(AuthContext)
   const [ message, setMessage ] = React.useState('')
