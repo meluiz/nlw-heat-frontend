@@ -11,6 +11,9 @@ export const Root = styled.div`${({ theme }) => css`
   align-items: center;
   justify-content: center;
   padding: 348px 72px 0;
+  border: 1px solid rgba(255,255,255,.06);
+  border-top: 0;
+  border-bottom: 0;
   text-align: center;
   background-color: ${theme.colors.background.secondary};
   background-image: url(${BannerGirlImage});
