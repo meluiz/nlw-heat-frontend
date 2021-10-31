@@ -5,69 +5,75 @@ export const Root = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  position: relative;
 `
 
 export const LogoFigure = styled.figure`
-  height: 28px;
+  height: 14px;
   margin: 32px 0;
+  position: absolute;
+  top: 0; left: 0;
 
-  img {
-    height: 100%;
-  }
+  img { height: 100% }
+`
+
+export const Content = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1;
 `
 
 export const Unordered = styled.ul`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 1;
-  gap: 40px;
+  gap: 24px;
+  padding-left: 32px;
+  position: relative;
   list-style: none;
 `
 
-export const ListItem = styled.li`
+export const ListItem = styled.li`${({ theme }) => css`
   width: 100%;
-  max-width: 512px;
-  border: 1px solid rgba(255,255,255,.06);
+  max-width: 420px;
+  border: 1px dashed ${theme.colors.background.tone[500]};
   border-radius: 4px;
-  background-color: rgba(0,0,0,.3);
+  background-color: ${theme.colors.background.tone[200]};
 
-  &:nth-child(2) {
-    margin-left: 80px;
-  }
-
-  &:nth-child(n+3) {
-    display: none;
-  }
+  &:nth-child(n+3) { display: none }
 
   @media screen and (min-height: 936px) {
     &:nth-child(n+3) {
       display: initial;
     }
   }
-`
+`}`
 
-export const Text = styled.p`
-  font-size: 18px;
+export const Text = styled.p`${({ theme }) => css`
+  padding: 24px 24px 8px;
   line-height: 28px;
-  padding: 24px 24px 18px;
-`
+  color: ${theme.colors.text.tone[50]};
+  font-size: 16px;
+`}`
 
-export const User = styled.div`
+export const User = styled.div`${({ theme }) => css`
   display: flex;
   align-items: center;
   gap: 14px;
-  border-top: 1px solid rgba(255,255,255,.06);
+  border-top: 1px dashed ${theme.colors.background.tone[500]};
   margin-top: 16px;
   padding: 14px 18px;
-  background-color: rgba(0,0,0,.3);
-`
+  background-color: ${theme.colors.background.tone[100]};
+`}`
 
-export const UserAvatar = styled.div`
-  padding: 2px;
+export const UserAvatar = styled.div`${({ theme }) => css`
+  padding: 1px;
   border-radius: 9999px;
-  background: linear-gradient(100deg, #ff008E 0%, #FFCD1E 100%);
-`
+  box-shadow: 0 0 10px black;
+`}`
 
 export const UserFigure = styled.figure`${({ theme }) => css`
   width: 36px;
@@ -76,7 +82,6 @@ export const UserFigure = styled.figure`${({ theme }) => css`
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border: 3px solid ${theme.colors.background.primary};
   position: relative;
   overflow: hidden;
 
@@ -86,6 +91,8 @@ export const UserFigure = styled.figure`${({ theme }) => css`
   }
 `}`
 
-export const UserName = styled.span`
-  font-size: 16px;
-`
+export const UserName = styled.span`${({ theme }) => css`
+  font-size: 14px;
+  font-weight: 500;
+  color: ${theme.colors.text.tone[500]};
+`}`

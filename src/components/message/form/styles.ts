@@ -6,23 +6,26 @@ export const Root = styled.div`${({ theme }) => css`
   flex-direction: column;
   align-items: center;
   align-self: center;
+  border-radius: 4px;
+  border: 1px dashed ${theme.colors.background.tone[700]};
   position: relative;
   text-align: center;
-  background-color: ${theme.colors.background.secondary};
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+  background-color: ${theme.colors.background.tone[400]};
 `}`
 
-export const SignoutButton = styled.button`
+export const SignoutButton = styled.button`${({ theme }) => css`
   border: 0;
   background-color: transparent;
   position: absolute;
   top: 24px; left: 24px;
   cursor: pointer;
-  color: rgba(255,255,255,.3);
+  color: ${theme.colors.text.tone[400]};
 
   &:hover {
-    filter: brightness(.9);
+    color: ${theme.colors.text.tone[100]};
   }
-`
+`}`
 
 export const Header = styled.header`
   display: flex;
@@ -30,11 +33,11 @@ export const Header = styled.header`
   align-items: center;
 `
 
-export const Avatar = styled.div`
-  padding: 3px;
+export const Avatar = styled.div`${({ theme }) => css`
+  padding: 2px;
   border-radius: 9999px;
-  background: linear-gradient(100deg, #ff008E 0%, #FFCD1E 100%);
-`
+  background: linear-gradient(100deg, ${theme.colors.background.primary} 0%, ${theme.colors.background.secondary} 100%);
+`}`
 
 export const Figure = styled.figure`${({ theme }) => css`
   width: 94px;
@@ -43,7 +46,7 @@ export const Figure = styled.figure`${({ theme }) => css`
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border: 3px solid ${theme.colors.background.primary};
+  border: 4px solid ${theme.colors.background.tone[400]};
   position: relative;
   overflow: hidden;
 
@@ -53,53 +56,79 @@ export const Figure = styled.figure`${({ theme }) => css`
   }
 `}`
 
-export const UserName = styled.strong`
+export const UserName = styled.strong`${({ theme }) => css`
   margin-top: 16px;
   line-height: 32px;
   font-size: 24px;
-`
+  color: ${theme.colors.text.primary};
+`}`
 
-export const UserGithub = styled.span`
+export const UserGithub = styled.span`${({ theme }) => css`
   display: flex;
   align-items: center;
   gap: 8px;
   margin-top: 8px;
-  color: rgba(255,255,255,.3);
-`
+  color: ${theme.colors.text.tone[300]};
+`}`
 
-export const Form = styled.form`${({ theme }) => css`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-self: stretch;
   margin-top: 48px;
-  background-color: #202024;
+  border-radius: 4px;
+  overflow: hidden;
+`
 
-  label {
-    padding: 18px 24px;
-    text-align: left;
-    font-size: 20px;
-    font-weight: 700;
-    background-color: #29292e;
+export const Label = styled.label`${({ theme }) => css`
+  border: 1px dashed ${theme.colors.background.tone[700]};
+  border-bottom: 0;
+  padding: 18px 24px 28px;
+  position: relative;
+  text-align: left;
+  color: ${theme.colors.text.tone[50]};
+  font-size: 18px;
+  font-weight: 600;
+  background-color: ${theme.colors.background.tone[200]};
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 1px dashed ${theme.colors.background.tone[700]};
+    border-bottom: 0; border-right: 0;
+    border-radius: 4px 0 0 0;
+    position: absolute;
+    bottom: -10px; left: 24px;
+    transform: rotate(45deg);
+    background-color: ${theme.colors.background.tone[300]};
+    z-index: 10;
   }
+`}`
 
-  textarea {
-    height: 160px;
-    border: 0;
-    padding: 24px;
-    resize: none;
-    background-color: transparent;
-    line-height: 24px;
-    color: #e1e1e6;
-    font-family: ${theme.font.family};
+export const Textbox = styled.textarea`${({ theme }) => css`
+  height: 112px;
+  border: 1px dashed ${theme.colors.background.tone[700]};
+  border-bottom: 0;
+  padding: 16px 18px;
+  position: relative;
+  resize: none;
+  line-height: 24px;
+  color: ${theme.colors.text.tone[50]};
+  font-size: 14px;
+  font-family: ${theme.font.family};
+  background-color: ${theme.colors.background.tone[300]};
 
-    &:focus {
-      outline: none;
-    }
+  &:focus { outline: none }
+  &::placeholder { color: ${theme.colors.text.tone[600]} }
+`}`
 
-    &::placeholder {
-      color: #8d8de9;
-    }
-  }
+export const FormFooter = styled.div`${({ theme }) => css`
+  display: flex;
+  justify-content: space-between;
+  border: 1px dashed ${theme.colors.background.tone[700]};
+  border-top: 0;
+  background-color: ${theme.colors.background.tone[300]};
 
   button {
     height: 40px;
@@ -115,7 +144,7 @@ export const Form = styled.form`${({ theme }) => css`
     text-transform: uppercase;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 600;
     color: ${theme.colors.text.secondary};
     background-color: #ff008e;
     cursor: pointer;

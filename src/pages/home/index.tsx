@@ -10,15 +10,17 @@ import { LoginBox } from "@src/components/login/box"
 import { MessageForm } from "@src/components/message/form"
 
 /* ------| Styles |------ */
-import { Root } from './styles'
+import { Container, Root } from './styles'
 
 export function Home() {
   const { user } = React.useContext(AuthContext)
   return (
     <Wrapper>
       <Root>
-        <MessageList />
-        { !!user ? <MessageForm /> : <LoginBox /> }
+        <Container>
+          <MessageList />
+          { !!user ? <MessageForm /> : <LoginBox /> }
+        </Container>
       </Root>
     </Wrapper>
   )

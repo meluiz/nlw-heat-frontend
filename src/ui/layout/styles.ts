@@ -7,5 +7,5 @@ export const Root = styled.div`${({ theme }) => css`
   overflow-x: hidden;
   color: ${theme.colors.text.primary};
   font-family: ${theme.font.family};
-  background-color: ${theme.colors.background.primary};
+  background-color: ${theme.colors.background.tone[300]};
 `}`

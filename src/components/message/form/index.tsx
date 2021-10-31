@@ -14,9 +14,12 @@ import {
   Avatar,
   Figure,
   Form,
+  FormFooter,
   Header,
+  Label,
   Root,
   SignoutButton,
+  Textbox,
   UserGithub,
   UserName
 } from './styles'
@@ -52,15 +55,17 @@ export const MessageForm = () => {
         </UserGithub>
       </Header>
       <Form onSubmit={handleMessage}>
-        <label htmlFor="message">Mensagem</label>
-        <textarea
+        <Label htmlFor="message">Mensagem</Label>
+        <Textbox
           name="message"
           id="message"
           placeholder="Qual sua expectativa para o evento?"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          ></textarea>
-        <button type="submit">Enviar mensagem</button>
+          ></Textbox>
+        <FormFooter>
+          <button type="submit">Enviar mensagem</button>
+        </FormFooter>
       </Form>
     </Root>
   )

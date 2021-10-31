@@ -17,7 +17,8 @@ import {
   User,
   UserAvatar,
   UserName,
-  Text
+  Text,
+  Content
 } from './styles'
 import { clearTimeout } from 'timers'
 
@@ -66,21 +67,23 @@ export const MessageList = () => {
       <LogoFigure>
         <img src={LogoImage} alt="DoWhile 2021" />
       </LogoFigure>
-      <Unordered>
-        {messages && messages.map((message) => (
-          <ListItem key={message.id}>
-            <Text>{message.message}</Text>
-            <User>
-              <UserAvatar>
-                <UserFigure>
-                  <img src={message.user.avatar_url || message.user.avatar} alt={message.user.name} />
-                </UserFigure>
-              </UserAvatar>
-              <UserName>{message.user.name}</UserName>
-            </User>
-          </ListItem>
-        ))}
-      </Unordered>
+      <Content>
+        <Unordered>
+          {messages && messages.map((message) => (
+            <ListItem key={message.id}>
+              <Text>{message.message}</Text>
+              <User>
+                <UserAvatar>
+                  <UserFigure>
+                    <img src={message.user.avatar_url || message.user.avatar} alt={message.user.name} />
+                  </UserFigure>
+                </UserAvatar>
+                <UserName>{message.user.name}</UserName>
+              </User>
+            </ListItem>
+          ))}
+        </Unordered>
+      </Content>
     </Root>
   )
 }
