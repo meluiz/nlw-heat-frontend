@@ -4,10 +4,11 @@ import React from 'react'
 import { AuthContext } from '@contexts/auth'
 
 /* ------| Components |------ */
+import { Button } from '@ui/button'
 import { VscGithubInverted } from 'react-icons/vsc'
 
 /* ------| Styles |------ */
-import { Light, LinkGithub, Root, Wrapper } from './styles'
+import { GithubLink, Light, Root, Text, Wrapper } from './styles'
 
 export const LoginBox = () => {
   const { signinUrl } = React.useContext(AuthContext)
@@ -15,11 +16,11 @@ export const LoginBox = () => {
     <Root>
       <Light />
       <Wrapper>
-        <strong>Envie e compartilhe sua mensagem</strong>
-        <LinkGithub href={signinUrl}>
+        <Text>Envie e compartilhe sua mensagem</Text>
+        <GithubLink href={signinUrl} as="a">
           <VscGithubInverted size={24} />
           Entrar com Github
-        </LinkGithub>
+        </GithubLink>
       </Wrapper>
     </Root>
   )

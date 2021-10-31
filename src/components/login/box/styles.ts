@@ -47,12 +47,7 @@ export const Wrapper = styled.div`${({ theme }) => css`
   background-position: center -112px;
   z-index: 10;
   position: relative;
-
-  strong {
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 36px;
-  }
+  gap: 32px;
 
   @media screen and (min-width: 1536px) {
     padding: 440px 72px 0;
@@ -60,23 +55,27 @@ export const Wrapper = styled.div`${({ theme }) => css`
   }
 `}`
 
-export const LinkGithub = styled.a`${({ theme }) => css`
-  height: 56px;
+export const Text = styled.strong`
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 36px;
+`
+
+export const GithubLink = styled.a`${({ theme }) => css`
+  min-height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   border-radius: 2px;
-  margin-top: 32px;
   padding: 0 40px;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 900;
+  font-family: ${theme.font.family};
   color: ${theme.colors.text.secondary};
   background-color: ${theme.colors.background.secondary};
 
-  &:hover {
-    filter: brightness(.9);
-  }
+  &:hover { filter: brightness(.9) }
 `}`

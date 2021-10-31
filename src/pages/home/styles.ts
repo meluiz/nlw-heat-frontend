@@ -40,4 +40,3 @@ export const Container = styled.div`
   position: relative;
   z-index: 100;
 `
-
