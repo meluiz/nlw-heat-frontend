@@ -26,6 +26,7 @@ export const Unordered = styled.ul`
 `
 
 export const ListItem = styled.li`
+  width: 100%;
   max-width: 512px;
   border: 1px solid rgba(255,255,255,.06);
   border-radius: 4px;
