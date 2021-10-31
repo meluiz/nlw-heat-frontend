@@ -26,6 +26,10 @@ export default defineConfig({
       {
         find: '@media',
         replacement: path.resolve(__dirname, 'src/media')
+      },
+      {
+        find: '@services',
+        replacement: path.resolve(__dirname, 'src/services')
       }
     ]
   }
