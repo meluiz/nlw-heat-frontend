@@ -3,8 +3,22 @@ import React from 'react'
 /* ------| Styles |------ */
 import { Root } from './styles'
 
-export const Button = () => {
+/* ------| Types |------ */
+type ButtonPropsType = {
+  children?: React.ReactNode
+  variant?: 'primary' | 'secondary'
+  type?: 'button' | 'submit' | 'reset'
+}
+
+
+export const Button = ({
+  children,
+  variant,
+  type
+}: ButtonPropsType) => {
   return (
-    <Root>Hello, World</Root>
+    <Root variant={variant} type={type}>
+      {children}
+    </Root>
   )
 }
